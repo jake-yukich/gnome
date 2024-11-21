@@ -1,3 +1,9 @@
+// Package config loads environment variables from .env file.
+//
+// This file:
+// 1. Loads environment variables from .env file
+// 2. Provides a Config struct to hold the loaded variables
+// 3. Exposes the Config struct for other parts of the application (i.e. main.go) to use
 package config
 
 import (
