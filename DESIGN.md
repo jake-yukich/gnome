@@ -41,6 +41,7 @@
 
 ### **1. Backend Core (Go)**
    - Set up the Go project structure.
+   - Database Setup:
    - Create a basic API for querying gnomAD data from Postgres:
      - Endpoint: `/variants` to fetch variants by gene or region.
      - Endpoint: `/offtarget-risk` to calculate and return off-target risk metrics.
