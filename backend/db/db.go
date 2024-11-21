@@ -2,6 +2,7 @@ package db
 
 import (
 	"database/sql"
+
 	_ "github.com/lib/pq"
 )
 
@@ -14,7 +15,16 @@ func Connect(databaseURL string) error {
 		return err
 	}
 
-	return DB.Ping()
+	if err := DB.Ping(); err != nil {
+		return err
+	}
+
+	// Initialize tables from schema
+	if err := InitializeTables(); err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func Close() {
