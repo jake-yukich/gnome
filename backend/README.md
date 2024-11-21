@@ -26,9 +26,6 @@ gnome=# \q
 
 testing db connection:
 ```bash
-# if not already running start Postgres
-docker-compose up -d
-
 # start Go server
 go run main.go
 
