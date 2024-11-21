@@ -1,6 +1,16 @@
+# Docker Compose configuration for gnome services
+#
+# This file:
+# 1. Sets up PostgreSQL database container
+# 2. Creates initial empty database that Go backend will connect to
+# 3. Configures health checks and persistence
+#
+# Related files:
+# - backend/db/db.go: Connects to this database
+# - backend/db/schema.go: Creates schema in this database
 version: '3.8'
 services:
-  postgres:
+  db:
     image: postgres:16
     environment:
       POSTGRES_USER: postgres
@@ -10,6 +20,11 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d gnome"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 volumes:
   postgres_data:

@@ -9,18 +9,18 @@
 //   - LLM integration for gene editing assistance
 //
 // To run the server:
-//   1. Ensure environment variables are set (see .env.example)
-//   2. Run `go run main.go`
-//   3. Server will start on configured port (default: 8080)
+//  1. Ensure environment variables are set (see .env.example)
+//  2. Run `go run main.go`
+//  3. Server will start on configured port (default: 8080)
 package main
 
 import (
 	"log"
 
+	"github.com/gin-gonic/gin"
 	"github.com/jake-yukich/gnome/backend/api"
 	"github.com/jake-yukich/gnome/backend/config"
 	"github.com/jake-yukich/gnome/backend/db"
-	"github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -35,7 +35,7 @@ func main() {
 
 	// Initialize router
 	router := gin.Default()
-	
+
 	// Register routes
 	api.RegisterRoutes(router)
 

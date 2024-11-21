@@ -1,14 +1,15 @@
 package config
 
 import (
-	"github.com/joho/godotenv"
 	"os"
+
+	"github.com/joho/godotenv"
 )
 
 type Config struct {
 	DatabaseURL string
-	LLMApiKey  string
-	Port       string
+	LLMApiKey   string
+	Port        string
 }
 
 func Load() *Config {
@@ -16,9 +17,9 @@ func Load() *Config {
 	godotenv.Load()
 
 	return &Config{
-		DatabaseURL: getEnv("DATABASE_URL", "postgresql://localhost:5432/gene_editor?sslmode=disable"),
-		LLMApiKey:  getEnv("LLM_API_KEY", ""),
-		Port:       getEnv("PORT", "8080"),
+		DatabaseURL: getEnv("DATABASE_URL", "postgresql://localhost:5432/gnome?sslmode=disable"),
+		LLMApiKey:   getEnv("LLM_API_KEY", ""),
+		Port:        getEnv("PORT", "8080"),
 	}
 }
 

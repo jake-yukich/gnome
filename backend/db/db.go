@@ -1,3 +1,15 @@
+// Package db handles database connectivity and initialization for the gnome service.
+//
+// This file manages the PostgreSQL database connection lifecycle:
+// 1. Establishes connection to the Docker PostgreSQL container
+// 2. Verifies connection with ping
+// 3. Triggers schema initialization via InitializeTables()
+// 4. Provides connection cleanup
+//
+// Related files:
+// - docker-compose.yml: Defines the PostgreSQL container
+// - schema.go: Handles database migrations
+// - models/variant.go: Defines structs matching table schema
 package db
 
 import (

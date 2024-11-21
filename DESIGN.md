@@ -41,20 +41,22 @@
 
 ### **1. Backend Core (Go)**
    - Set up the Go project structure.
-   - Database Setup:
+   - Connect Go backend to Postgres.
+   - Set up database schema only:
+     - Define the tables and indices we will populate with ETL
+     - Create migrations that the ETL pipeline will use
+   - 📍 Create data models and repository layer:
+     - Define Go structs that match the schema
+     - Implement read-only database operations
    - Create a basic API for querying gnomAD data from Postgres:
      - Endpoint: `/variants` to fetch variants by gene or region.
      - Endpoint: `/offtarget-risk` to calculate and return off-target risk metrics.
    - Test API responses with mock data.
 
----
-
 ### **2. ETL Pipeline (Python)**
    - Process gnomAD data (e.g., extract VCF files, clean, and normalize).
    - Load processed data into Postgres with appropriate indexing for fast lookups.
    - Optionally precompute risk metrics if computationally expensive.
-
----
 
 ### **3. Frontend Basics (React + TypeScript)**
    - Create a basic React app with:
@@ -62,29 +64,21 @@
      - A table or card layout to display query results.
    - Connect the frontend to the backend APIs (`/variants`).
 
----
-
 ### **4. LLM Integration**
    - Add a `/query-llm` endpoint to the backend:
      - Use the LLM API for natural language interpretation.
      - Combine user input with backend data (e.g., off-target risk scores).
    - Test with simple questions and responses (e.g., "What does this variant do?").
 
----
-
 ### **5. Advanced Frontend Features**
    - Implement a chatbot-like interface for the LLM queries.
    - Add visualizations (e.g., risk scores, population frequency plots).
    - Optimize the UX for searching and exploring data.
 
----
-
 ### **6. RAG (Retrieval-Augmented Generation)**
    - Generate embeddings for gnomAD documentation or related literature during ETL.
    - Store embeddings in Postgres (with `pgvector`) or a vector store.
    - Update the `/query-llm` endpoint to retrieve and augment LLM responses with relevant documents.
-
----
 
 ### **7. Final Touches**
    - Add sample gene-editing scenarios to demonstrate functionality.

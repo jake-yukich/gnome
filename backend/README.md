@@ -1,5 +1,3 @@
-(WIP)
-
 ### Connecting Golang Backend to Postgres
 
 starting database:
@@ -52,3 +50,17 @@ curl http://localhost:8080/api/test-db/entries
 {"id":1,"message":"Entry created successfully"}
 {"entries":[{"created_at":"2024-11-21T18:56:52.470739Z","id":1,"message":"Hello, Database!"}]}
 ```
+
+### Creating Migrations
+
+Added `migrations` folder to `db` package. Example migration files:
+```
+000001_initial_schema.up.sql   -> "Do this change"
+000001_initial_schema.down.sql -> "Undo this change"
+```
+
+Updated `schema.go` to embed the migrations folder and execute the migrations in order.
+
+Updated `db.go` to call `InitializeTables()` after establishing a connection to ensure the database tables exist.
+
+Added `models` package to `db` package, which contains Go struct `Variant` that match the database tables.
