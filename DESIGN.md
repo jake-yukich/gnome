@@ -1,7 +1,4 @@
-Given the refined context, here’s a tailored project idea incorporating the Go backend, LLM-based retrieval, gnomAD data, and a gene-editing safety focus:
-
----
-
+## Overview
 ### **Gene-Editing Variant Risk Explorer**
 **Overview:** Build a web application to assess the safety of genetic edits by analyzing off-target effects and variant risks, leveraging gnomAD data and an LLM for interpreting results and providing context.
 
@@ -39,20 +36,8 @@ Given the refined context, here’s a tailored project idea incorporating the Go
      - Use `pgvector` in Postgres or a separate vector store to enable fast similarity searches.
      - Combine retrieved documents with the LLM’s response for a comprehensive answer.
 
----
 
-#### **Why This Idea Works**
-- **Domain Relevance:** Directly connects to the company’s focus on gene-editing safety and gnomAD data.
-- **Technical Breadth:** Demonstrates end-to-end skills across Python ETL, Go backend, React frontend, and LLM integration.
-- **Innovation:** Highlights your ability to incorporate novel AI-driven retrieval features into a biologically relevant application.
-
-Let me know if you’d like help sketching out the architecture or implementing any part of this!
-
----
-
-Here’s a concise implementation plan for the **Gene-Editing Variant Risk Explorer**:
-
----
+## Implementation Plan
 
 ### **1. Backend Core (Go)**
    - Set up the Go project structure.
@@ -106,11 +91,7 @@ Here’s a concise implementation plan for the **Gene-Editing Variant Risk Explo
 
 ---
 
-This order ensures a functional product early, with iterative complexity and LLM/RAG integration added later for polish and innovation.
-
----
-
-A suggested clean monorepo structure that separates concerns while maintaining good organization:
+### Sample monorepo structure:
 
 ```plaintext
 gene-editor/
