@@ -1,21 +1,27 @@
+from sqlalchemy import Column, Integer, String, Float
 from pydantic import BaseModel
-from sqlalchemy import Column, Integer, String
-from database import engine
-from typing import Optional
+from database import Base
 
-# Data model
+# Database Model
+class VariantDB(Base):
+    __tablename__ = "variants"
+    
+    id = Column(Integer, primary_key=True)
+    chromosome = Column(String)
+    position = Column(Integer)
+    reference_allele = Column(String)
+    alternate_allele = Column(String)
+    gene_symbol = Column(String)
+    allele_frequency = Column(Float)
+
+# API Model
 class Variant(BaseModel):
-    id: Optional[int] = None
     chromosome: str
     position: int
     reference_allele: str
     alternate_allele: str
+    gene_symbol: str
+    allele_frequency: float
 
-# Database operations
-def get_variant_by_id(db, variant_id: int):
-    return db.query(Variant).filter(Variant.id == variant_id).first()
-
-# Business logic
-def analyze_variant_risk(variant: Variant) -> float:
-    # Risk analysis logic
-    return 0.5
+    class Config:
+        from_attributes = True  # Allows conversion from SQLAlchemy model
