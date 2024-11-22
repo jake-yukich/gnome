@@ -1,3 +1,5 @@
+## Backend Development Log
+
 ### Connecting Golang Backend to Postgres
 
 starting database:
@@ -60,4 +62,4 @@ Updated `schema.go` to embed the migrations folder and execute the migrations in
 
 Updated `db.go` to call `InitializeTables()` after establishing a connection to ensure the database tables exist.
 
-Added `models` package to `db` package, which contains Go struct `Variant` that match the database tables.
+Added `models` package to `db` package, which contains Go structs `Variant` and `PopulationMetric` that match database tables.
