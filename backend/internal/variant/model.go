@@ -1,4 +1,4 @@
-// Package models defines the data structures that map to database tables.
+// Package variant handles all variant-related functionality for gnome.
 //
 // This file defines the Variant and PopulationMetric structs that:
 // 1. Match the database schema defined in db/migrations/
@@ -8,8 +8,7 @@
 // Related files:
 // - db/migrations/001_variants.up.sql: Defines the matching tables
 // - db/schema.go: Creates these tables in the database
-// - TODO: api/handlers.go: Uses these models for data operations
-package models
+package variant
 
 import "time"
 

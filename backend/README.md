@@ -63,3 +63,43 @@ Updated `schema.go` to embed the migrations folder and execute the migrations in
 Updated `db.go` to call `InitializeTables()` after establishing a connection to ensure the database tables exist.
 
 Added `models` package to `db` package, which contains Go structs `Variant` and `PopulationMetric` that match database tables.
+
+### Reorganizing File Structure
+
+To make the backend subdirectory adhere to more standard `Golang` best practices, things have been arranged as follows:
+```text
+backend/
+├── cmd/                   # Application entry points
+│   └── server/
+│       └── main.go        # Main application
+│
+├── internal/              # Private application code
+│   ├── config/            # Configuration
+│   │   └── config.go      # Loads configuration from environment variables
+│   │
+│   ├── models/            # Domain models
+│   │   └── variant.go     # Defines what a variant is (data structure)
+│   │
+│   ├── repository/        # Database operations
+│   │   └── variant.go     # How to store/retrieve variants
+│   │
+│   ├── api/               # API handlers
+│   │   └── routes.go    # HTTP endpoint logic
+│   │
+│   └── service/           # Business logic
+│       └── variant.go     # Variant-related operations
+│
+├── pkg/                   # Public libraries (if any)
+│
+├── db/                    # Database utilities
+│   ├── migrations/        # SQL schema files
+│   ├── db.go              # Database connection
+│   └── schema.go          # Migration handling
+│
+├── .env                   # Environment variables for local development
+├── Dockerfile             # Container build instructions
+├── go.mod                 # Go module definition and dependencies
+├── go.sum                 # Dependency checksums
+├── Makefile               # Build/development commands
+└── README.md              # Backend documentation
+```
