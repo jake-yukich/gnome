@@ -25,9 +25,8 @@
    - **Visualization:** Add charts or visual summaries for off-target risk scores, variant distribution, and population statistics.
 
 3. **Python ETL Pipeline**
-   - **Tasks:**
-     - Extract relevant gnomAD data (e.g., VCF files) and process it into a format suitable for querying in Postgres.
-     - Precompute off-target risk metrics or variant impact scores for faster retrieval.
+   - Extract relevant gnomAD data (e.g., VCF files) and process it into a format suitable for querying in Postgres.
+   - Precompute off-target risk metrics or variant impact scores for faster retrieval.
 
 4. **LLM-Driven RAG**
    - **Use Case:** When a user queries the system, retrieve relevant documentation or scientific papers explaining the variant or gene from a knowledge base (e.g., PubMed or gnomAD documentation).
