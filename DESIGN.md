@@ -39,22 +39,16 @@
 
 ## Implementation Plan
 
-### **1. Backend Core (Go)**
-   - Set up the Go project structure.
-   - Connect Go backend to Postgres.
-   - Set up database schema only:
-     - Define the tables and indices we will populate with ETL
-     - Create migrations that the ETL pipeline will use
-   - 📍 Create data models and repository layer:
-     - Define Go structs that match the schema
-     - Implement read-only database operations
+### **1. Backend Core (Python)**
+   - (switched to `Python` for the backend)
+   - (TODO: add details)
    - Create a basic API for querying gnomAD data from Postgres:
      - Endpoint: `/variants` to fetch variants by gene or region.
      - Endpoint: `/offtarget-risk` to calculate and return off-target risk metrics.
    - Test API responses with mock data.
 
 ### **2. ETL Pipeline (Python)**
-   - Process gnomAD data (e.g., extract VCF files, clean, and normalize).
+   - 📍 Process gnomAD data (e.g., extract VCF files, clean, and normalize).
    - Load processed data into Postgres with appropriate indexing for fast lookups.
    - Optionally precompute risk metrics if computationally expensive.
 
