@@ -1,16 +1,14 @@
-from pathlib import Path
-from utils import load_config
+# import requests
+# import gzip
+# import io
 
-class GnomADExtractor:
-    def __init__(self):
-        self.config = load_config()
-        
-    def download_vcf(self, chromosome: str) -> Path:
-        """Download VCF file for a specific chromosome"""
-        # TODO: Implement download logic
-        pass
+# def download_gnomad_data(chromosome: str) -> str:
+#     """Download gnomAD VCF for a specific chromosome."""
+#     # Example URL (we'll need to find exact gnomAD URLs)
+#     url = f"https://gnomad.broadinstitute.org/download/vcf/chr{chromosome}.vcf.gz"
     
-    def extract_vcf_data(self, vcf_path: Path):
-        """Extract data from VCF file"""
-        # TODO: Implement extraction logic
-        pass
+#     response = requests.get(url, stream=True)
+#     if response.status_code == 200:
+#         return gzip.decompress(response.content).decode('utf-8')
+#     else:
+#         raise Exception(f"Failed to download data: {response.status_code}")

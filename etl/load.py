@@ -1,22 +1,13 @@
-import pandas as pd
-from sqlalchemy import create_engine
-from utils import load_config
+# from sqlalchemy import create_engine
+# from sqlalchemy.orm import sessionmaker
+# import pandas as pd
 
-class PostgresLoader:
-    def __init__(self):
-        self.config = load_config()
-        self.engine = self._create_db_engine()
+# def load_variants_to_db(variants: List[dict], db_url: str):
+#     """Load transformed variants into Postgres."""
+#     engine = create_engine(db_url)
     
-    def _create_db_engine(self):
-        """Create SQLAlchemy engine for database connection"""
-        db_config = self.config['database']
-        connection_string = (
-            f"postgresql://{db_config['user']}:{db_config['password']}"
-            f"@{db_config['host']}:{db_config['port']}/{db_config['name']}"
-        )
-        return create_engine(connection_string)
+#     # Convert to DataFrame for efficient bulk loading
+#     df = pd.DataFrame(variants)
     
-    def load_data(self, data: pd.DataFrame, table_name: str):
-        """Load data into PostgreSQL with proper indexing"""
-        # TODO: Implement loading logic with indexing
-        pass
+#     # Load to database
+#     df.to_sql('variants', engine, if_exists='append', index=False)

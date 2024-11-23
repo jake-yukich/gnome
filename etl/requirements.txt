@@ -1,8 +1,5 @@
-pyyaml
 pandas
 sqlalchemy
 psycopg2-binary
-cyvcf2
-pytest
-jupyter
+pyvcf3
 requests
